@@ -1,40 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/league.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2> Software Development Principles</h2>
+          <p>
+            Should Be Embraced Daily Being a good programmer is a mix of skills
+            and common sense.
+          </p>
+        </section>
+        <section>
+          <h3>YAGNI - You Aren't Gonna Need It</h3>
+          <p>
+            <ul>
+              <li>Add code that is needed right away.</li>
+              <li>Refactor and remove unused
+            code.</li>
+              <li>Embrace version control for code retrieval.</li>
+            </ul>
+          </p>
+          </section>
+                  <section>
+          <h6>Examples:</h6>
+            <pre><code>
+function add(a, b) {
+  // Unnecessary check that we aren't gonna need
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    return null;
+  }
+  // Unnecessary variable declaration
+  const result = a + b;
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+  // Unnecessary logging
+  console.log(`The result is: ${result}`);
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+  return result;
+}
+</code>
+<code>
+  function add(a, b) {
+  // Simpler version that follows YAGNI
+  return a + b;
+}</code>
+          </section>
+        <section>
+          <h3>DRY - Don't Repeat Yourself</h3>
+          <p>
+            <ul>
+              <li>Maintain a single source of truth for information and data.</li>
+              <li>Avoid
+            duplicated code for better maintenance.</li>
+              <li>Reuse existing code when
+                possible.</li>
+            </ul>
+          </p>
+        </section>
+        <section>
+          <h3>KISS - Keep It Simple, Silly</h3>
+          <p>
+            <ul>
+              <li>Simpler systems work best and more reliably.</li>
+              <li>Avoid overengineering and using new tools unnecessarily.</li>
+              <li>Choose the simplest and most efficient solutions.</li>
+            </ul>
+          </p>
+        </section>
+        <section>
+        <h6>Examples:</h6>
+  <pre><code>
+  function calculateGrade(score) {
+    // Bad: Overly complex code that violates KISS
+    if (score >= 90) {
+        return "A";
+      } else if (score >= 80) {
+        return "B";
+      } else if (score >= 70) {
+        return "C";
+      } else if (score >= 60) {
+        return "D";
+      } else {
+        return "F";
+      }
+  }
+</code>
+<code>
+  function calculateGrade(score) {
+    // Good: Simpler and adhering to KISS
+    if (score >= 90) return "A";
+    if (score >= 80) return "B";
+    if (score >= 70) return "C";
+    if (score >= 60) return "D";
+    return "F";
+  }
+</code>
+          </section>
+        <section>
+          <h3>Big Design Up Front thoroughly before implementation</h3>
+          <p>
+            <ul><li>Avoid rushing into coding
+              without a clear plan.</li>
+            <li>Involve others in the design process for
+              better outcomes.</li></ul>
+          </p>
+        </section>
+        <section>
+          <h3>Avoid Premature Optimization</h3>
+          <p>
+            <ul><li>Don't optimize until necessary.</li>
+            <li>Apply KISS and YAGNI principles.</li>
+          <li> Premature optimization can lead to delays and increased costs.</li></ul>
+          </p>
+        </section>
+        <section>
+        <ul><li>Conclusion - Embrace these principles for better programming.</li>
+        <li>Increase awareness and apply one principle at a time.</li>
+        <li>Simplicity and power make these principles valuable.</li></ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
